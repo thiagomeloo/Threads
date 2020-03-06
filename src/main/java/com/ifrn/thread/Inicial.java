@@ -63,10 +63,16 @@ public class Inicial extends Thread {
             tp.add(new Processando(buffer1));
 
             //recorta o arquivo
-            Arquivo.recortarArquivo("inicial/" + buffer1, "processando/" + buffer1);
+            if(!Arquivo.recortarArquivo("inicial/" + buffer1, "processando/" + buffer1)){
+                dormir(5000);
+                
+            }else{
+                //inicia a thread
+                tp.get(tp.size() - 1).start();
+            }
+            
 
-            //inicia a thread
-            tp.get(tp.size() - 1).start();
+
             
         }
 
