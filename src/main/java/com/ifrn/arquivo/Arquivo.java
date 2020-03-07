@@ -5,9 +5,12 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.io.PrintWriter;
+import sun.security.pkcs11.wrapper.Constants;
 
 
 public class Arquivo {
@@ -129,6 +132,38 @@ public class Arquivo {
         }
         
         return c;
+    }
+    
+    /**
+     * Metodo lerArquivo()
+     *
+     * Você deve utiliza-lo para escrever o conteudo de uma String em um arquivo
+     * '.txt'.passado como @param O metodo retorna um boolean true caso ocorra
+     * sucesso na ação e um false caso haja falha
+     *
+     *
+     * @param source caminho onde está localizado o arquivo
+     * @param texto texto a ser escrito no final do arquivo
+     * @return boolean
+     */
+    public static boolean escreverNoArquivo(String source, String texto) {
+        try {
+            File arquivo = new File(source);
+            FileWriter escrita = new FileWriter(arquivo, true);
+            PrintWriter saida = new PrintWriter(escrita);
+
+            saida.append(Constants.NEWLINE + texto); //escreve uma nova linha no fim do arquivo
+
+            saida.close();
+            escrita.close();
+
+            return true;
+
+        } catch (IOException ex) {
+
+            return false;
+
+        }
     }
     
 }

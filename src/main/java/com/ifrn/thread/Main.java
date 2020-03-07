@@ -9,6 +9,8 @@ public class Main {
         Inicial inicial = new Inicial();
         inicial.start();
         
+        System.out.println("FIM");
+        
         
         
     }
