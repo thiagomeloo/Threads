@@ -135,7 +135,7 @@ public class Arquivo {
     }
     
     /**
-     * Metodo lerArquivo()
+     * Metodo escreverNoArquivo()
      *
      * Você deve utiliza-lo para escrever o conteudo de uma String em um arquivo
      * '.txt'.passado como @param O metodo retorna um boolean true caso ocorra
